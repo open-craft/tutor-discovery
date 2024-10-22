@@ -20,6 +20,7 @@ DATABASES = {
     }
 }
 
+{% if ACTIVATE_ELASTICSEARCH %}
 ELASTICSEARCH_DSL['default'].update({
     'hosts': "{{ ELASTICSEARCH_SCHEME }}://{{ ELASTICSEARCH_HOST }}:{{ ELASTICSEARCH_PORT }}/"
 })
@@ -27,6 +28,7 @@ ELASTICSEARCH_DSL['default'].update({
 {% for name, index in DISCOVERY_INDEX_OVERRIDES.items() %}
 ELASTICSEARCH_INDEX_NAMES["{{ name }}"] = "{{ index }}"
 {% endfor %}
+{% endif %}
 
 CACHES = {
     "default": {

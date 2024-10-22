@@ -10,3 +10,4 @@ discovery:
     - lms
     {% if RUN_MYSQL %}- mysql{% endif %}
     {% if RUN_ELASTICSEARCH %}- elasticsearch{% endif %}
+    {% if RUN_MEILISEARCH %}- meilisearch{% endif %}
